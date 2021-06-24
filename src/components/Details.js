@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BASE_URL, API_KEY } from '../constants'
 import axios from 'axios'
+import styled from 'styled-components'
 
 export default function Details(props) {
   const { friendId, close } = props
@@ -13,12 +14,12 @@ export default function Details(props) {
   }, [friendId])
 
   return (
-    <div className='container'>
+    <DarkContainer primary={false}>
       <h2>Details:</h2>
       {
         details &&
         <>
-          <p>{details.name} is {details.age}</p>
+          <PersonInfo>{details.name} is {details.age}</PersonInfo>
           <p>email is {details.email}</p>
           {name} likes:
           <ul>
@@ -29,6 +30,28 @@ export default function Details(props) {
         </>
       }
       <button onClick={close}>Close</button>
-    </div>
+    </DarkContainer>
   )
 }
+
+const Container = styled.div`
+  background-color: ${props => props.primary ? 'pink' : 'papayawhip'};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+`
+
+const DarkContainer = styled(Container)`
+  background-color: #24155d;
+  color: white;
+  padding: 15px;
+`
+
+const PersonInfo = styled.p`
+  &:hover {
+    font-size: 20px;
+    transition: 2s all ease-in-out;
+  }
+`
