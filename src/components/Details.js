@@ -16,12 +16,12 @@ const StyledDetails = styled.div`
   transform: scale(2) rotateZ(180deg);
   animation: ${kf} 0.5s ease-in-out forwards;
 
-  background-color: ${props => props.theme.tertiaryColor};
+  background-color: ${props => props.theme.primaryColor};
   p {
     color: ${props => props.theme.tertiaryColor};
   }
   h2 {
-    color: ${props => props.theme.primaryColor};
+    color: ${props => props.theme.white};
   }
 `
 
